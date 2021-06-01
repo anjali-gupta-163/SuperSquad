@@ -1,13 +1,11 @@
-import characters_json from '../data/characters.json';
-import { ADD_CHARACTER } from '../actions';
+import { combineReducers } from 'redux';
+import page1 from './page1_reducer';
+import page2 from './page2_reducer';
+import page3 from './page3_reducer';
 
-function characters(state = characters_json, action){
-    switch(action.type){
-        case ADD_CHARACTER:
-            let characters = state.filter(item => item.id !== action.id);
-            return characters;
-        default:
-            return state;
-    }
-}
-export default characters;
+const rootReducer = combineReducers({
+    page1,
+    page2,
+    page3
+})
+export default rootReducer;
